@@ -33,16 +33,16 @@
             this.BMIResultTextBox = new System.Windows.Forms.TextBox();
             this.WeightTextBox = new System.Windows.Forms.TextBox();
             this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
+            this.BMITextBox = new System.Windows.Forms.TextBox();
             this.MetricRadioButton = new System.Windows.Forms.RadioButton();
             this.WeightLabel = new System.Windows.Forms.Label();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CalculateBMIButton = new System.Windows.Forms.Button();
             this.HeightTextBox = new System.Windows.Forms.TextBox();
-            this.BMITextBox = new System.Windows.Forms.TextBox();
             this.ResetButton = new System.Windows.Forms.Button();
             this.FormLabel = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.ResultLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +103,14 @@
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
             this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
             // 
+            // BMITextBox
+            // 
+            this.BMITextBox.Location = new System.Drawing.Point(201, 179);
+            this.BMITextBox.Name = "BMITextBox";
+            this.BMITextBox.Size = new System.Drawing.Size(100, 38);
+            this.BMITextBox.TabIndex = 8;
+            this.BMITextBox.TextChanged += new System.EventHandler(this.BMITextBox_TextChanged);
+            // 
             // MetricRadioButton
             // 
             this.MetricRadioButton.AutoSize = true;
@@ -154,14 +162,6 @@
             this.HeightTextBox.Text = "inc/m";
             this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
-            // BMITextBox
-            // 
-            this.BMITextBox.Location = new System.Drawing.Point(201, 179);
-            this.BMITextBox.Name = "BMITextBox";
-            this.BMITextBox.Size = new System.Drawing.Size(100, 38);
-            this.BMITextBox.TabIndex = 8;
-            this.BMITextBox.TextChanged += new System.EventHandler(this.BMITextBox_TextChanged);
-            // 
             // ResetButton
             // 
             this.ResetButton.Location = new System.Drawing.Point(201, 135);
@@ -187,21 +187,21 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label1
+            // ResultLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 280);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Result";
+            this.ResultLabel.AutoSize = true;
+            this.ResultLabel.Location = new System.Drawing.Point(202, 287);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(86, 31);
+            this.ResultLabel.TabIndex = 1;
+            this.ResultLabel.Text = "label1";
             // 
             // BMICalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 441);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(304, 701);
+            this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.FormLabel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -234,7 +234,7 @@
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.TextBox BMIResultTextBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ResultLabel;
     }
 }
 
