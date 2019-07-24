@@ -27,32 +27,34 @@ namespace COMP123_S2019_Assignment4
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            double weight, height, bmi;
-            weight = double.Parse(WeightTextBox.Text);
-            height = double.Parse(HeightTextBox.Text);
-            if (ImperialRadioButton.Checked == true )
+            double  bmi;
+            int weight = int.Parse(WeightTextBox.Text);
+            int height = int.Parse(HeightTextBox.Text);
+            if (ImperialRadioButton.Checked == true)
             {
                 bmi = (weight * 703) / (height * height);
-                if (bmi < 18.5)
-                {
-                    ResultLabel.Text = String.Format("{0:f}",bmi + "\n Underweight");
-                }
-                else if (bmi > 18.5 && bmi < 24.9)
-                {
-                    ResultLabel.Text = String.Format("{0:f}",bmi + "\n Normal");
-                }
-                else if (bmi > 25 && bmi < 29.9)
-                {
-                    ResultLabel.Text = String.Format("{0:f}",bmi + "\n Overweight");
-                }
-                else if (bmi > 30)
-                {
-                    ResultLabel.Text = String.Format("{0:f}",bmi + "\n Obese");
-                }
             }
-           
-            
-            
+            else
+            {
+                bmi = (weight) / (height * height);
+            }
+            if (bmi < 18.5)
+            {                
+                BMIResultTextBox.Text = "Underweight";
+            }
+            else if (bmi > 18.5 && bmi < 24.9)
+            {
+                BMIResultTextBox.Text = "Normal";
+            }
+            else if (bmi > 25 && bmi < 29.9)
+            {               
+                BMIResultTextBox.Text = "Overweight";
+            }
+            else 
+            {                
+                BMIResultTextBox.Text = "Obese";
+            }
+            BMITextBox.Text = String.Format("{0:f}", bmi);
         }
 
         private void FormLabel_Click(object sender, EventArgs e)
@@ -102,7 +104,10 @@ namespace COMP123_S2019_Assignment4
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-
+            this.HeightTextBox.Text = "";
+            this.WeightTextBox.Text = "";
+            this.BMITextBox.Text = "";
+            this.BMIResultTextBox.Text = "";          
         }
 
         private void BMICalculator_Load(object sender, EventArgs e)

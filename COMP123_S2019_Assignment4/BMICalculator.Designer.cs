@@ -57,10 +57,10 @@
             this.tableLayoutPanel1.Controls.Add(this.BMITextBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.MetricRadioButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.WeightLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.HeightLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.CalculateBMIButton, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.HeightTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.ResetButton, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.HeightLabel, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -75,6 +75,9 @@
             // 
             // BMIResultTextBox
             // 
+            this.BMIResultTextBox.BackColor = System.Drawing.Color.LightGray;
+            this.BMIResultTextBox.Enabled = false;
+            this.BMIResultTextBox.ForeColor = System.Drawing.Color.DodgerBlue;
             this.BMIResultTextBox.Location = new System.Drawing.Point(3, 179);
             this.BMIResultTextBox.Multiline = true;
             this.BMIResultTextBox.Name = "BMIResultTextBox";
@@ -88,7 +91,6 @@
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(100, 38);
             this.WeightTextBox.TabIndex = 5;
-            this.WeightTextBox.Text = "p/kg";
             this.WeightTextBox.TextChanged += new System.EventHandler(this.WeightTextBox_TextChanged);
             // 
             // ImperialRadioButton
@@ -105,6 +107,9 @@
             // 
             // BMITextBox
             // 
+            this.BMITextBox.BackColor = System.Drawing.Color.LightGray;
+            this.BMITextBox.Enabled = false;
+            this.BMITextBox.ForeColor = System.Drawing.Color.DodgerBlue;
             this.BMITextBox.Location = new System.Drawing.Point(201, 179);
             this.BMITextBox.Name = "BMITextBox";
             this.BMITextBox.Size = new System.Drawing.Size(100, 38);
@@ -128,7 +133,8 @@
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Location = new System.Drawing.Point(3, 88);
             this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(141, 31);
+            this.WeightLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.WeightLabel.Size = new System.Drawing.Size(141, 38);
             this.WeightLabel.TabIndex = 3;
             this.WeightLabel.Text = "My Weight";
             this.WeightLabel.Click += new System.EventHandler(this.WeightLabel_Click);
@@ -138,7 +144,8 @@
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Location = new System.Drawing.Point(3, 44);
             this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(136, 31);
+            this.HeightLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.HeightLabel.Size = new System.Drawing.Size(136, 38);
             this.HeightLabel.TabIndex = 2;
             this.HeightLabel.Text = "My Height";
             this.HeightLabel.Click += new System.EventHandler(this.HeightLabel_Click);
@@ -159,7 +166,6 @@
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(100, 38);
             this.HeightTextBox.TabIndex = 4;
-            this.HeightTextBox.Text = "inc/m";
             this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // ResetButton
@@ -175,7 +181,7 @@
             // FormLabel
             // 
             this.FormLabel.AutoSize = true;
-            this.FormLabel.Location = new System.Drawing.Point(6, 9);
+            this.FormLabel.Location = new System.Drawing.Point(38, 9);
             this.FormLabel.Name = "FormLabel";
             this.FormLabel.Size = new System.Drawing.Size(221, 31);
             this.FormLabel.TabIndex = 0;
@@ -192,9 +198,8 @@
             this.ResultLabel.AutoSize = true;
             this.ResultLabel.Location = new System.Drawing.Point(202, 287);
             this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(86, 31);
+            this.ResultLabel.Size = new System.Drawing.Size(0, 31);
             this.ResultLabel.TabIndex = 1;
-            this.ResultLabel.Text = "label1";
             // 
             // BMICalculator
             // 
