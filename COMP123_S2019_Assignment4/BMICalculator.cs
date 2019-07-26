@@ -82,12 +82,7 @@ namespace COMP123_S2019_Assignment4
  
         private void HeightLabel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void HeightTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void WeightLabel_Click(object sender, EventArgs e)
@@ -95,10 +90,7 @@ namespace COMP123_S2019_Assignment4
 
         }
 
-        private void WeightTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void BMIResultTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -135,6 +127,42 @@ namespace COMP123_S2019_Assignment4
 
         private void FourButton_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void HeightTextBox_Click(object sender, EventArgs e)
+        {
+            DigitKeyboardPanel.BringToFront();
+            DigitKeyboardPanel.Location = new Point(37, HeightTextBox.Location.Y + 105);
+        }
+
+        private void WeightTextBox_Click(object sender, EventArgs e)
+        {
+            DigitKeyboardPanel.BringToFront();
+            DigitKeyboardPanel.Location = new Point(37, HeightTextBox.Location.Y + 150);
+        }
+        /// <summary>
+        /// This shared event handler for NumericButton Click will be used to put inputs in the required fields.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void NumericButton_Click(object sender, EventArgs e)
+        {
+            var TheButton = sender as Button;
+            int Buttonvalue;
+            bool Result = int.TryParse(TheButton.Text, out Buttonvalue);
+            if (Result)
+            {
+                DisplayLabel.Text = TheButton.Text;
+
+            }
+            else
+            {
+                DisplayLabel.Text = "NotaNumber";
+            }
+
+        
 
         }
     }
