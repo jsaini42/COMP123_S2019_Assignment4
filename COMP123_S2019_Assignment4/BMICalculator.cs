@@ -114,5 +114,10 @@ namespace COMP123_S2019_Assignment4
         {
             this.Size = new Size(320, 480);
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
