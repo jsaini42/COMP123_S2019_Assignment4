@@ -10,8 +10,16 @@ using System.Windows.Forms;
 
 namespace COMP123_S2019_Assignment4
 {
+    
     public partial class BMICalculator : Form
     {
+        // CLASS PROPERTIES
+        public string outputString { get; set; }       
+        public float outputValue { get; set; }
+        public bool decimalExists { get; set; }
+
+
+
         /// <summary>
         /// This is the constructor for BMICalculator Form
         /// </summary>
@@ -27,9 +35,9 @@ namespace COMP123_S2019_Assignment4
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            double  bmi;
-            int weight = int.Parse(WeightTextBox.Text);
-            int height = int.Parse(HeightTextBox.Text);
+            double bmi;
+            double weight = Convert.ToDouble(WeightTextBox.Text);
+            double height = Convert.ToDouble(HeightTextBox.Text);
             if (ImperialRadioButton.Checked == true)
             {
                 bmi = (weight * 703) / (height * height);
@@ -116,6 +124,16 @@ namespace COMP123_S2019_Assignment4
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BMITableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FourButton_Click(object sender, EventArgs e)
         {
 
         }
