@@ -58,6 +58,8 @@
             this.WeightLabel = new System.Windows.Forms.Label();
             this.WeightTextBox = new System.Windows.Forms.TextBox();
             this.BMITableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.WeightUnitLabel = new System.Windows.Forms.Label();
+            this.HeightUnitLabel = new System.Windows.Forms.Label();
             this.DigitKeyboardPanel.SuspendLayout();
             this.BMITableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -72,11 +74,11 @@
             this.ImperialRadioButton.TabStop = true;
             this.ImperialRadioButton.Text = "Imperial";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
-            this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
             // 
             // MetricRadioButton
             // 
             this.MetricRadioButton.AutoSize = true;
+            this.BMITableLayoutPanel.SetColumnSpan(this.MetricRadioButton, 2);
             this.MetricRadioButton.Location = new System.Drawing.Point(200, 3);
             this.MetricRadioButton.Name = "MetricRadioButton";
             this.MetricRadioButton.Size = new System.Drawing.Size(106, 35);
@@ -88,44 +90,48 @@
             // 
             // CalculateBMIButton
             // 
-            this.CalculateBMIButton.Location = new System.Drawing.Point(3, 156);
+            this.CalculateBMIButton.BackColor = System.Drawing.Color.Transparent;
+            this.CalculateBMIButton.Location = new System.Drawing.Point(3, 153);
             this.CalculateBMIButton.Name = "CalculateBMIButton";
             this.CalculateBMIButton.Size = new System.Drawing.Size(191, 38);
             this.CalculateBMIButton.TabIndex = 7;
             this.CalculateBMIButton.Text = "Calculate BMI";
-            this.CalculateBMIButton.UseVisualStyleBackColor = true;
+            this.CalculateBMIButton.UseVisualStyleBackColor = false;
             this.CalculateBMIButton.Click += new System.EventHandler(this.CalculateBMIButton_Click);
             // 
             // HeightTextBox
             // 
-            this.HeightTextBox.Location = new System.Drawing.Point(200, 54);
+            this.HeightTextBox.Location = new System.Drawing.Point(200, 53);
             this.HeightTextBox.Name = "HeightTextBox";
-            this.HeightTextBox.Size = new System.Drawing.Size(57, 38);
+            this.HeightTextBox.Size = new System.Drawing.Size(64, 38);
             this.HeightTextBox.TabIndex = 4;
-            this.HeightTextBox.Click += new System.EventHandler(this.HeightTextBox_Click);
+            this.HeightTextBox.Click += new System.EventHandler(this.ActiveLabel_Click);
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(200, 156);
+            this.ResetButton.BackColor = System.Drawing.Color.Transparent;
+            this.BMITableLayoutPanel.SetColumnSpan(this.ResetButton, 2);
+            this.ResetButton.Location = new System.Drawing.Point(200, 153);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(100, 38);
             this.ResetButton.TabIndex = 9;
             this.ResetButton.Text = "Reset";
-            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.UseVisualStyleBackColor = false;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // HeightLabel
             // 
-            this.HeightLabel.Location = new System.Drawing.Point(3, 51);
+            this.HeightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.HeightLabel.Location = new System.Drawing.Point(3, 50);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(191, 38);
             this.HeightLabel.TabIndex = 2;
             this.HeightLabel.Text = "My Height:";
             this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.HeightLabel.Click += new System.EventHandler(this.HeightLabel_Click);
             // 
             // FormLabel
             // 
+            this.FormLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.FormLabel.Location = new System.Drawing.Point(31, 22);
             this.FormLabel.Name = "FormLabel";
             this.FormLabel.Size = new System.Drawing.Size(221, 39);
@@ -187,6 +193,7 @@
             this.DecimalButton.Name = "DecimalButton";
             this.DecimalButton.Size = new System.Drawing.Size(52, 39);
             this.DecimalButton.TabIndex = 11;
+            this.DecimalButton.Tag = "decimal";
             this.DecimalButton.Text = ".";
             this.DecimalButton.UseVisualStyleBackColor = false;
             this.DecimalButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -200,6 +207,7 @@
             this.ZeroButton.Name = "ZeroButton";
             this.ZeroButton.Size = new System.Drawing.Size(110, 39);
             this.ZeroButton.TabIndex = 9;
+            this.ZeroButton.Tag = "0";
             this.ZeroButton.Text = "0";
             this.ZeroButton.UseVisualStyleBackColor = false;
             this.ZeroButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -212,6 +220,7 @@
             this.OneButton.Name = "OneButton";
             this.OneButton.Size = new System.Drawing.Size(52, 36);
             this.OneButton.TabIndex = 8;
+            this.OneButton.Tag = "1";
             this.OneButton.Text = "1";
             this.OneButton.UseVisualStyleBackColor = false;
             this.OneButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -224,6 +233,7 @@
             this.TwoButton.Name = "TwoButton";
             this.TwoButton.Size = new System.Drawing.Size(52, 36);
             this.TwoButton.TabIndex = 7;
+            this.TwoButton.Tag = "2";
             this.TwoButton.Text = "2";
             this.TwoButton.UseVisualStyleBackColor = false;
             this.TwoButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -236,6 +246,7 @@
             this.ThreeButton.Name = "ThreeButton";
             this.ThreeButton.Size = new System.Drawing.Size(52, 36);
             this.ThreeButton.TabIndex = 6;
+            this.ThreeButton.Tag = "3";
             this.ThreeButton.Text = "3";
             this.ThreeButton.UseVisualStyleBackColor = false;
             this.ThreeButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -248,6 +259,7 @@
             this.SixButton.Name = "SixButton";
             this.SixButton.Size = new System.Drawing.Size(52, 36);
             this.SixButton.TabIndex = 5;
+            this.SixButton.Tag = "6";
             this.SixButton.Text = "6";
             this.SixButton.UseVisualStyleBackColor = false;
             this.SixButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -260,6 +272,7 @@
             this.FiveButton.Name = "FiveButton";
             this.FiveButton.Size = new System.Drawing.Size(52, 36);
             this.FiveButton.TabIndex = 4;
+            this.FiveButton.Tag = "5";
             this.FiveButton.Text = "5";
             this.FiveButton.UseVisualStyleBackColor = false;
             this.FiveButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -272,6 +285,7 @@
             this.FourButton.Name = "FourButton";
             this.FourButton.Size = new System.Drawing.Size(52, 36);
             this.FourButton.TabIndex = 3;
+            this.FourButton.Tag = "4";
             this.FourButton.Text = "4";
             this.FourButton.UseVisualStyleBackColor = false;
             this.FourButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -284,6 +298,7 @@
             this.NineButton.Name = "NineButton";
             this.NineButton.Size = new System.Drawing.Size(52, 36);
             this.NineButton.TabIndex = 2;
+            this.NineButton.Tag = "9";
             this.NineButton.Text = "9";
             this.NineButton.UseVisualStyleBackColor = false;
             this.NineButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -296,6 +311,7 @@
             this.EightButton.Name = "EightButton";
             this.EightButton.Size = new System.Drawing.Size(52, 36);
             this.EightButton.TabIndex = 1;
+            this.EightButton.Tag = "8";
             this.EightButton.Text = "8";
             this.EightButton.UseVisualStyleBackColor = false;
             this.EightButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -308,6 +324,7 @@
             this.SevenButton.Name = "SevenButton";
             this.SevenButton.Size = new System.Drawing.Size(52, 36);
             this.SevenButton.TabIndex = 0;
+            this.SevenButton.Tag = "7";
             this.SevenButton.Text = "7";
             this.SevenButton.UseVisualStyleBackColor = false;
             this.SevenButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -323,6 +340,7 @@
             this.DigitKeyboardPanel.SetRowSpan(this.BackButton, 2);
             this.BackButton.Size = new System.Drawing.Size(55, 78);
             this.BackButton.TabIndex = 10;
+            this.BackButton.Tag = "back";
             this.BackButton.Text = "bksp";
             this.BackButton.UseVisualStyleBackColor = false;
             this.BackButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -337,6 +355,7 @@
             this.DigitKeyboardPanel.SetRowSpan(this.DoneButton, 2);
             this.DoneButton.Size = new System.Drawing.Size(55, 81);
             this.DoneButton.TabIndex = 12;
+            this.DoneButton.Tag = "done";
             this.DoneButton.Text = "Done";
             this.DoneButton.UseVisualStyleBackColor = false;
             this.DoneButton.Click += new System.EventHandler(this.NumericButton_Click);
@@ -350,23 +369,23 @@
             this.DisplayLabel.Name = "DisplayLabel";
             this.DisplayLabel.Size = new System.Drawing.Size(229, 42);
             this.DisplayLabel.TabIndex = 13;
+            this.DisplayLabel.Tag = "display";
             this.DisplayLabel.Text = "0";
             this.DisplayLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // BMITextBox
             // 
-            this.BMITextBox.BackColor = System.Drawing.Color.LightGray;
+            this.BMITextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BMITextBox.Enabled = false;
             this.BMITextBox.ForeColor = System.Drawing.Color.DodgerBlue;
             this.BMITextBox.Location = new System.Drawing.Point(7, 287);
             this.BMITextBox.Name = "BMITextBox";
             this.BMITextBox.Size = new System.Drawing.Size(293, 38);
             this.BMITextBox.TabIndex = 8;
-            this.BMITextBox.TextChanged += new System.EventHandler(this.BMITextBox_TextChanged);
             // 
             // BMIResultTextBox
             // 
-            this.BMIResultTextBox.BackColor = System.Drawing.Color.LightGray;
+            this.BMIResultTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BMIResultTextBox.Enabled = false;
             this.BMIResultTextBox.ForeColor = System.Drawing.Color.DodgerBlue;
             this.BMIResultTextBox.Location = new System.Drawing.Point(8, 344);
@@ -374,40 +393,41 @@
             this.BMIResultTextBox.Name = "BMIResultTextBox";
             this.BMIResultTextBox.Size = new System.Drawing.Size(292, 40);
             this.BMIResultTextBox.TabIndex = 10;
-            this.BMIResultTextBox.TextChanged += new System.EventHandler(this.BMIResultTextBox_TextChanged);
             // 
             // WeightLabel
             // 
-            this.WeightLabel.Location = new System.Drawing.Point(3, 102);
+            this.WeightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WeightLabel.Location = new System.Drawing.Point(3, 100);
             this.WeightLabel.Name = "WeightLabel";
             this.WeightLabel.Size = new System.Drawing.Size(191, 38);
             this.WeightLabel.TabIndex = 3;
             this.WeightLabel.Text = "My Weight:";
             this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.WeightLabel.Click += new System.EventHandler(this.WeightLabel_Click);
             // 
             // WeightTextBox
             // 
-            this.WeightTextBox.Location = new System.Drawing.Point(200, 105);
+            this.WeightTextBox.Location = new System.Drawing.Point(200, 103);
             this.WeightTextBox.Name = "WeightTextBox";
-            this.WeightTextBox.Size = new System.Drawing.Size(57, 38);
+            this.WeightTextBox.Size = new System.Drawing.Size(64, 38);
             this.WeightTextBox.TabIndex = 5;
-            this.WeightTextBox.Click += new System.EventHandler(this.NumericButton_Click);
-            this.WeightTextBox.TextChanged += new System.EventHandler(this.WeightTextBox_Click);
+            this.WeightTextBox.Click += new System.EventHandler(this.ActiveLabel_Click);
             // 
             // BMITableLayoutPanel
             // 
-            this.BMITableLayoutPanel.ColumnCount = 2;
-            this.BMITableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.87097F));
-            this.BMITableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.12903F));
+            this.BMITableLayoutPanel.ColumnCount = 3;
+            this.BMITableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.7037F));
+            this.BMITableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.2963F));
+            this.BMITableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.BMITableLayoutPanel.Controls.Add(this.WeightTextBox, 1, 2);
             this.BMITableLayoutPanel.Controls.Add(this.ImperialRadioButton, 0, 0);
             this.BMITableLayoutPanel.Controls.Add(this.MetricRadioButton, 1, 0);
             this.BMITableLayoutPanel.Controls.Add(this.WeightLabel, 0, 2);
-            this.BMITableLayoutPanel.Controls.Add(this.CalculateBMIButton, 0, 3);
             this.BMITableLayoutPanel.Controls.Add(this.HeightTextBox, 1, 1);
             this.BMITableLayoutPanel.Controls.Add(this.ResetButton, 1, 3);
             this.BMITableLayoutPanel.Controls.Add(this.HeightLabel, 0, 1);
+            this.BMITableLayoutPanel.Controls.Add(this.CalculateBMIButton, 0, 3);
+            this.BMITableLayoutPanel.Controls.Add(this.WeightUnitLabel, 2, 2);
+            this.BMITableLayoutPanel.Controls.Add(this.HeightUnitLabel, 2, 1);
             this.BMITableLayoutPanel.Location = new System.Drawing.Point(-1, 64);
             this.BMITableLayoutPanel.Name = "BMITableLayoutPanel";
             this.BMITableLayoutPanel.RowCount = 4;
@@ -415,9 +435,30 @@
             this.BMITableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.BMITableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.BMITableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.BMITableLayoutPanel.Size = new System.Drawing.Size(309, 207);
+            this.BMITableLayoutPanel.Size = new System.Drawing.Size(313, 200);
             this.BMITableLayoutPanel.TabIndex = 0;
-            this.BMITableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BMITableLayoutPanel_Paint);
+            // 
+            // WeightUnitLabel
+            // 
+            this.WeightUnitLabel.AutoEllipsis = true;
+            this.WeightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightUnitLabel.Location = new System.Drawing.Point(270, 100);
+            this.WeightUnitLabel.Name = "WeightUnitLabel";
+            this.WeightUnitLabel.Size = new System.Drawing.Size(36, 38);
+            this.WeightUnitLabel.TabIndex = 12;
+            this.WeightUnitLabel.Text = "po";
+            this.WeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // HeightUnitLabel
+            // 
+            this.HeightUnitLabel.AutoEllipsis = true;
+            this.HeightUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightUnitLabel.Location = new System.Drawing.Point(270, 50);
+            this.HeightUnitLabel.Name = "HeightUnitLabel";
+            this.HeightUnitLabel.Size = new System.Drawing.Size(36, 41);
+            this.HeightUnitLabel.TabIndex = 11;
+            this.HeightUnitLabel.Text = "inc";
+            this.HeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BMICalculator
             // 
@@ -437,6 +478,7 @@
             this.Name = "BMICalculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculator_FormClosing);
             this.Load += new System.EventHandler(this.BMICalculator_Load);
             this.DigitKeyboardPanel.ResumeLayout(false);
             this.BMITableLayoutPanel.ResumeLayout(false);
@@ -476,6 +518,8 @@
         private System.Windows.Forms.TextBox WeightTextBox;
         private System.Windows.Forms.Label WeightLabel;
         private System.Windows.Forms.TableLayoutPanel BMITableLayoutPanel;
+        private System.Windows.Forms.Label HeightUnitLabel;
+        private System.Windows.Forms.Label WeightUnitLabel;
     }
 }
 

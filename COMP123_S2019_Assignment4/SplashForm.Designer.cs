@@ -53,13 +53,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(304, 441);
+            this.ClientSize = new System.Drawing.Size(320, 480);
             this.Controls.Add(this.DisplayLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SplashForm";
             this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashForm";
-            this.Load += new System.EventHandler(this.SplashScreen_Load);
+            this.Load += new System.EventHandler(this.SplashForm_Load);
             this.ResumeLayout(false);
 
         }
